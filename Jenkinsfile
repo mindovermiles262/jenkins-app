@@ -1,0 +1,50 @@
+@Library('my-jgl')_
+
+pipeline {
+  agent {
+    kubernetes {
+      containerTemplate {
+        name 'alpine'
+        image 'alpine'
+        ttyEnabled true
+        command 'cat'
+      }
+    }
+  }
+  stages {
+    stage('Print Env') {
+      steps {
+        script {
+          sh 'printenv'
+        }
+      }
+    }
+    // immediately fail the job when someone is working
+    // with a branch we know nothing about.
+    stage('verify branch') {
+      steps {
+        script {
+          dataeng.verifyBranchName()
+        }
+      }
+    }
+
+    stage('unit test') {
+      agent {
+        kubernetes {
+          containerTemplate {
+            image 'mindovermiles262/pytest:0.1.2'
+            name 'unit-test-python'
+            ttyEnabled true
+            command 'cat'
+          }
+        }
+      }
+      steps {
+        script {
+          dataeng.unitTest(env.GIT_URL)
+        }
+      }
+    }
+  }
+}
