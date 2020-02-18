@@ -1,3 +1,3 @@
 test:
-	@echo "Running workingMaster: make test"
+	@echo "[+] Jenkins-App: running 'make test'"
 	flake8 ./lib/
