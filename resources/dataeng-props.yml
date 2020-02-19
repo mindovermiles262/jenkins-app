@@ -1,4 +1,4 @@
 environment:
   test:
     default:
-      repo: "jgl"
+      repo: "app"
