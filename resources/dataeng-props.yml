@@ -2,3 +2,4 @@ environments:
   test:
     default:
       repo: "app"
+      key2: "value2"
