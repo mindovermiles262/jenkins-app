@@ -1,2 +1,3 @@
 gcpProjectId: "asdf1234"
 newbuildprop: "testing"
+containerImageName: "gcr.io/${buildProps.gcpProjectIdProd}/${buildProps.repoName}:latest"
