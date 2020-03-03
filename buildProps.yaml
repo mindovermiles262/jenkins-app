@@ -1,3 +1,2 @@
-buildProps:
-  gcpProjectId: "asdf1234"
-  newbuildprop: "testing"
+gcpProjectId: "asdf1234"
+newbuildprop: "testing"
