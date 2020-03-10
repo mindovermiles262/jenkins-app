@@ -1,2 +1,2 @@
 newbuildprop: "testing"
-imageTag: "latest"
+imageTag: "imageTagFromBuildPropsYAML"
